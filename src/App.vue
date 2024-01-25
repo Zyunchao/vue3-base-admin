@@ -1,16 +1,15 @@
 <template>
-    <div>Vue</div>
+    <ConfigProvider>
+        <div>Vue</div>
+    </ConfigProvider>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-export default defineComponent({
+<script lang="ts" setup>
+import ConfigProvider from '@/config/ConfigProvider'
+
+defineOptions({
     name: 'App'
 })
-</script>
-
-<script lang="ts" setup>
-import { watch, ref, computed, reactive, onMounted, onUnmounted, nextTick } from 'vue'
 </script>
 
 <style lang="scss" scoped></style>
