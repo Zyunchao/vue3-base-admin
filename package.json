@@ -1,20 +1,51 @@
 {
-  "name": "app-center",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc && vite build",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "vue": "^3.4.15 "
-  },
-  "devDependencies": {
-    "@vitejs/plugin-vue": "^4.5.2",
-    "typescript": "^5.2.2",
-    "vite": "^5.0.8",
-    "vue-tsc": "^1.8.25"
-  }
+    "name": "app-center",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vue-tsc && vite build",
+        "preview": "vite preview",
+        "prepare": "npx husky install",
+        "cm": "git-cz"
+    },
+    "dependencies": {
+        "@vueuse/core": "^10.7.2",
+        "dayjs": "^1.11.10",
+        "element-plus": "2.5.3",
+        "js-base64": "^3.7.6",
+        "lodash": "^4.17.21",
+        "pinia": "^2.1.7",
+        "uuid": "^9.0.1",
+        "vue": "^3.4.15 ",
+        "vue-router": "^4.2.5"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^18.5.0",
+        "@commitlint/config-conventional": "^18.5.0",
+        "@vitejs/plugin-vue": "^4.5.2",
+        "@vitejs/plugin-vue-jsx": "^3.1.0",
+        "commitizen": "^4.3.0",
+        "cz-customizable": "^7.0.0",
+        "eslint": "^8.56.0",
+        "husky": "8.0.1",
+        "lint-staged": "^15.2.0",
+        "typescript": "^5.2.2",
+        "vite": "^5.0.8",
+        "vue-tsc": "^1.8.25"
+    },
+    "lint-staged": {
+        "src/**/*.{js,vue}": [
+            "eslint --fix"
+        ]
+    },
+    "config": {
+        "commitizen": {
+            "path": "cz-customizable"
+        },
+        "cz-customizable": {
+            "config": "./.cz-config.cjs"
+        }
+    }
 }
