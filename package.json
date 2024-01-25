@@ -11,6 +11,7 @@
         "cm": "git-cz"
     },
     "dependencies": {
+        "@element-plus/icons-vue": "^2.3.1",
         "@vueuse/core": "^10.7.2",
         "axios": "^1.6.6",
         "dayjs": "^1.11.10",
@@ -43,6 +44,8 @@
         "postcss-pxtorem": "^6.1.0",
         "sass": "^1.70.0",
         "typescript": "^5.2.2",
+        "unplugin-auto-import": "^0.17.4",
+        "unplugin-vue-components": "^0.26.0",
         "vite": "^5.0.8",
         "vue-tsc": "^1.8.25"
     },

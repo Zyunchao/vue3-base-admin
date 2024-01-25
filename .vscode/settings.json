@@ -51,7 +51,7 @@
     "explorer.fileNesting.enabled": true,
     "explorer.fileNesting.expand": false,
     "explorer.fileNesting.patterns": {
-        "global.d.ts": "global.wujie.d.ts,shims-vue.d.ts,source.d.ts",
+        "global.d.ts": "*.d.ts",
         "*.ts": "$(capture).test.ts, $(capture).test.tsx",
         "*.tsx": "$(capture).test.ts, $(capture).test.tsx",
         "*.env": "$(capture).env.*",
