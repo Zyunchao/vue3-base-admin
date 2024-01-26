@@ -1,0 +1,16 @@
+.root-layout__wrapper {
+    height: 100vh;
+
+    .root-layout__aside {
+        width: var(--layout-aside-w);
+    }
+
+    .root-layout__header {
+        height: var(--layout-header-h);
+    }
+
+    .root-layout__content,
+    .root-layout__header {
+        padding: 0;
+    }
+}

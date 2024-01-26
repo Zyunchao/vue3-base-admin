@@ -6,7 +6,9 @@ const commonRoutes: Array<RouteRecordRaw> = [
         path: '/',
         name: 'layout',
         children: frontEndRoutes,
-        // redirect: '/home',
+        redirect: {
+            name: 'home'
+        },
         component: () => import('@/layout/index.vue')
     },
     {

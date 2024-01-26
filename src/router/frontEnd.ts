@@ -8,7 +8,8 @@ const modules: Record<string, { default: RouteRecordRaw[] }> = import.meta.glob(
 
 // 组合成统一数组
 const routers = Object.keys(modules).reduce((routes: RouteRecordRaw[], modulePath) => {
-    return modules[modulePath].default?.length ? routes.concat(modules[modulePath].default) : routes
+    const moduleContent = modules[modulePath].default
+    return moduleContent?.length ? routes.concat(moduleContent) : routes
 }, [])
 
 export default routeConfigs2RegisteredRoutes(cloneDeep(routers))
