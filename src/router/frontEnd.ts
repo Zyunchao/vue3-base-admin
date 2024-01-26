@@ -1,18 +1,41 @@
 import type { RouteRecordRaw } from 'vue-router'
 import { cloneDeep } from 'lodash'
+import { store, useAppFuncTreeStore } from '@/store'
 
-// 同步获取所有路由模块
-const modules: Record<string, { default: RouteRecordRaw[] }> = import.meta.glob('./modules/*.ts', {
-    eager: true
-})
+function getPublicRoutes() {
+    // 同步获取所有路由模块
+    const modules: Record<string, { default: RouteRecordRaw[] }> = import.meta.glob(
+        './modules/*.ts',
+        {
+            eager: true
+        }
+    )
 
-// 组合成统一数组
-const routers = Object.keys(modules).reduce((routes: RouteRecordRaw[], modulePath) => {
-    const moduleContent = modules[modulePath].default
-    return moduleContent?.length ? routes.concat(moduleContent) : routes
-}, [])
+    return cloneDeep(
+        Object.keys(modules).reduce((routes: RouteRecordRaw[], modulePath) => {
+            const moduleContent = modules[modulePath].default
+            return moduleContent?.length ? routes.concat(moduleContent) : routes
+        }, [])
+    )
+}
 
-export default routeConfigs2RegisteredRoutes(cloneDeep(routers))
+function storeRouteConfigs(routes: RouteRecordRaw[]) {
+    const appFuncStore = useAppFuncTreeStore(store)
+
+    // 存储路由配置（树形）
+    appFuncStore.setRouteConfigs(routes)
+    // 存储路由配置（一维）
+    const registeredRoutes = routeConfigs2RegisteredRoutes(routes)
+    appFuncStore.setRegisterRoutes(registeredRoutes)
+
+    return {
+        registeredRoutes
+    }
+}
+
+const { registeredRoutes } = storeRouteConfigs(getPublicRoutes())
+
+export default registeredRoutes
 
 /**
  * 多维数组变为一维数组注册路由

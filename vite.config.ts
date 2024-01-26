@@ -6,15 +6,17 @@ import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import { resolve } from 'path'
 import eslintPlugin from 'vite-plugin-eslint'
+import packInfo from './package.json'
 
 export default defineConfig({
+    base: `${packInfo.name}/`,
     plugins: [
         vue(),
         vueJsx(),
         eslintPlugin(),
         AutoImport({
             resolvers: [ElementPlusResolver()],
-            imports: ['vue', 'vue-router']
+            imports: ['vue', 'vue-router', 'pinia']
         }),
         Components({
             resolvers: [ElementPlusResolver()]
@@ -24,5 +26,10 @@ export default defineConfig({
         alias: {
             '@': resolve(__dirname, 'src')
         }
+    },
+    server: {
+        port: 8000,
+        open: true,
+        cors: true
     }
 })
