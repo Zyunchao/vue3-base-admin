@@ -1,6 +1,6 @@
 <template>
     <ConfigProvider>
-        <div>Vue</div>
+        <router-view />
     </ConfigProvider>
 </template>
 
@@ -10,6 +10,10 @@ import ConfigProvider from '@/config/ConfigProvider'
 defineOptions({
     name: 'App'
 })
+
+const router = useRouter()
+
+console.log(`%c routes === `, 'color: #67c23a;', router.getRoutes())
 </script>
 
 <style lang="scss" scoped></style>

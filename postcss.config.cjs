@@ -1,9 +1,9 @@
 module.exports = {
     plugins: {
-        'autoprefixer': {
+        autoprefixer: {
             overrideBrowserslist: ['Chrome > 31', 'ff > 31', 'last 2 versions'],
             grid: true
-        },
+        }
         // 'postcss-pxtorem': {
         //     rootValue: 100,
         //     propList: ['*'],
