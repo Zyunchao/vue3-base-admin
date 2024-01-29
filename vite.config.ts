@@ -10,7 +10,7 @@ import packInfo from './package.json'
 import proxys from './src/http/proxys'
 
 export default defineConfig({
-    base: `${packInfo.name}/`,
+    base: `/${packInfo.name}/`,
     plugins: [
         vue(),
         vueJsx(),
