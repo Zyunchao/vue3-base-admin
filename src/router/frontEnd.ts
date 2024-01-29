@@ -2,8 +2,8 @@ import type { RouteRecordRaw } from 'vue-router'
 import { cloneDeep } from 'lodash'
 import { store, useAppFuncTreeStore } from '@/store'
 
+// 同步获取所有路由模块
 function getPublicRoutes() {
-    // 同步获取所有路由模块
     const modules: Record<string, { default: RouteRecordRaw[] }> = import.meta.glob(
         './modules/*.ts',
         {
