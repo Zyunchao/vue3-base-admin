@@ -10,7 +10,7 @@ export default defineStore(
             routeConfigs.value = configs
         }
 
-        function getRouteConfigs(): Ref<RouteRecordRaw[]> {
+        function getRouteConfigsRef(): Ref<RouteRecordRaw[]> {
             return routeConfigs
         }
 
@@ -18,7 +18,7 @@ export default defineStore(
             registeredRoutes.value = routes
         }
 
-        function getRegisteredRoutes(): Ref<RouteRecordRaw[]> {
+        function getRegisteredRoutesRef(): Ref<RouteRecordRaw[]> {
             return registeredRoutes
         }
 
@@ -26,9 +26,9 @@ export default defineStore(
             routeConfigs,
             registeredRoutes,
             setRouteConfigs,
-            getRouteConfigs,
+            getRouteConfigsRef,
             setRegisterRoutes,
-            getRegisteredRoutes
+            getRegisteredRoutesRef
         }
     },
     {
