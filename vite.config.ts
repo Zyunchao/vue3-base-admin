@@ -7,6 +7,7 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import { resolve } from 'path'
 import eslintPlugin from 'vite-plugin-eslint'
 import packInfo from './package.json'
+import proxys from './src/http/proxys'
 
 export default defineConfig({
     base: `${packInfo.name}/`,
@@ -30,6 +31,7 @@ export default defineConfig({
     server: {
         port: 8000,
         open: true,
-        cors: true
+        cors: true,
+        proxy: proxys
     }
 })

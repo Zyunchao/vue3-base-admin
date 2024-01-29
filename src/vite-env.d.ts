@@ -9,6 +9,10 @@ interface ImportMetaEnv {
      * 路由模式
      */
     readonly VITE_ROUTE_MODE: 'frontend' | 'backend'
+    /**
+     * 基础代理地址
+     */
+    readonly VITE_BASE_REQ_URL: string
 }
 
 interface ImportMeta {
