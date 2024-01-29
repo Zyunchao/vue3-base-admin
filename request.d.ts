@@ -39,12 +39,22 @@ declare global {
          */
         responseType?: AxiosResponseType
         /**
-         * 代理配置
+         * 代理配置：常用于开发环境，与不同的后台本地联调时的代理关键字配置
          */
         prefix?: string
         /**
          * 参数以 restful 方式传递
          */
         restful?: boolean
+    }
+
+    interface IResponse<T = any> {
+        code: string
+        data: T extends any ? T : T & any
+    }
+
+    interface PageParam {
+        pageSize?: number
+        pageNo?: number
     }
 }
