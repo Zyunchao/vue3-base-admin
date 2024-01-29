@@ -12,7 +12,11 @@ interface ImportMetaEnv {
     /**
      * 基础代理地址
      */
-    readonly VITE_BASE_REQ_URL: string
+    readonly VITE_BASE_URL: string
+    /**
+     * 请求超时时间
+     */
+    readonly VITE_TIMEOUT: string
 }
 
 interface ImportMeta {
